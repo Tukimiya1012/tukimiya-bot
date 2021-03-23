@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>月宮総理と会話できる部屋</title>
+        <style>
+            #name{
+                text-align: center;
+                margin-top: 20px;
+            }
+            #input{
+                background-color: white;
+            }
+            #chat{
+                height: 500px;
+                width: 100%px;
+                background-color: rgba(140, 178, 250, 0.938);
+                overflow-x: hidden;
+                overflow-y: scroll;
+            }
+            #frm{
+                resize: none;
+                font-size: 30px;
+                font-family: MS PGothic;
+                width: calc(100% - 205px);
+                line-height: 16px;
+                height: 100px;
+                padding: 14px 6px 0px 6px;
+                border: 1px solid #ccc;
+                border-radius: 4px;
+                text-align: left;
+                box-shadow: 2px 2px 4px 0px rgba(0,0,0,0.2) inset;
+                box-sizing: border-box;
+            }
+            #btn{
+                width: 200px;
+                height: 100px;
+                font-size: 32px;
+                line-height: 3em;
+                float: right;
+                color: #fff;
+                font-weight: bold;
+                background-color: #3394f0;
+                text-align: center;
+                border: 1px solid #bbb;
+                border-radius: 10px;
+                box-sizing: border-box;
+            }
+            #btn:hover{
+                background-color: rgba(58, 94, 255, 0.493);
+                color: white;
+            }
+
+            .icon{
+                width: 60px;
+                height: 60px;
+                background-image: url(images/sori_icn.png);
+                background-size: 100%;
+                border-radius: 50%;
+                margin: 10px 5px 10px 10px;
+            }
+            .oya{
+                height: 70px;
+                width: 100%;
+            }
+            .mytext{
+                float: right;
+                background-color: rgb(0, 255, 64);
+                padding: 15px;
+                margin: 15px;
+                border-radius: 30px;
+            }
+            .bottext{
+                text-align: left;
+                background-color: rgb(255, 255, 255);
+                padding: 15px;
+                margin: 10px 0px;
+                border-radius: 30px;
+                transform: translateY(10%);
+            }
+            .es{
+                display: inline-block;
+                vertical-align: top;
+            }
+
+        </style>
+    </head>
+    <body>
+
+        <!--エスの名前-->
+        <h1 id="name">総理</h1>
+        
+        <!--チャット画面-->
+        <div id="chat">
+            <!--bot本体読み込み-->
+           <script type="text/javascript" src="js/bot.js"></script>
+
+           <script>
+                document.write("<div class=\"oya\"><div class=\"mytext\">こんにちは</div></div>");
+                document.write("<div class=\"es\"><div class=\"icon\"></div></div>");
+                document.write("<div class=\"es bottext \">こんにちはー</div>");6
+
+                const chat = document.getElementById("chat");
+
+                /*botのあった場所*/
+
+                function clickgo(){
+                    var my = "";
+                    my = document.getElementById("frm").value;
+                    document.getElementById("frm").value = "";
+
+                    const otxt = document.createElement("div");
+                    otxt.classList.add("oya");
+                    chat.appendChild(otxt);
+                    const txt = document.createElement("div");
+                    txt.classList.add('mytext');
+                    txt.innerHTML = my;
+                    otxt.appendChild(txt);
+
+                    setTimeout(bot,500,my);
+                    var element = document.documentElement;
+                    var bottom = element.scrollHeight - element.clientHeight;
+                    window.scroll(0, bottom);
+                }
+
+            </script> 
+        </div>
+        
+        <!--入力画面-->
+        <div id="input">
+            <textarea id="frm"></textarea>
+            <div id="btn" onclick="clickgo()">送信</div>        
+        </div>
+
+    </body>
+</html>
