@@ -19,14 +19,22 @@ function bot(my){
         bot = "こんばんわー";
     }
 
+    else if(my.includes("おはよう")){
+        bot = "おはようございますー！";
+    }
+
     else if(my.includes("好き")){
         if(my.includes("月宮")||my.includes("榛香")){
             bot = "な、なによ急に……";
         }
     }
     
-    else if(my.includes("早川")&&my.includes("成海")){
+    else if(my.includes("早川")||my.includes("成海")){
         bot = "っっっ！…ん？え？あ、何でもないわよ、うん……"
+    }
+
+    else if(my.includes("バツゴ")){
+        bot = "は？<br>テメェだけは許さねぇぞ(無慈悲)";
     }
 
     else if(my.includes("内政")){
@@ -45,7 +53,7 @@ function bot(my){
         bot = "どの国家が知りたい？下の国家なら答えられるよ。<br>・東日本民主連邦共和国<br>・西日本皇国<br>・ソビエト連邦<br>・アメリカ合衆国<br>※出来次第追加中です！"
     }
 
-    if(my == "東日本民主連邦共和国"){
+    else if(my == "東日本民主連邦共和国"){
         bot = "東日本民主連邦共和国は私の祖国であり日本列島の東北部に位置する社会主義国家よ。自慢のわが祖国！";
     }
     else if(my == "西日本皇国"){
@@ -87,13 +95,9 @@ function bot(my){
     }
 
     else{
-        var ran = Math.floor(Math.random()*100);
-        if(ran>=0 && 49>=ran){
-            bot = "そうですかぁ...";
-        }else{
-            bot="へーなるほどー";
-        }
+        bot = "なるほどぉ～";
     }
+
     if(img == 0){
         const icn = document.createElement("div");
         icn.classList.add("es");
