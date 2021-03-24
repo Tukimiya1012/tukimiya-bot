@@ -26,6 +26,8 @@ function bot(my){
     else if(my.includes("好き")){
         if(my.includes("月宮")||my.includes("榛香")){
             bot = "な、なによ急に……";
+        }else{
+            bot = "何が好きなの？";
         }
     }
     
